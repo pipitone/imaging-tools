@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# Returns a list of job IDs in the queue that match a given pattern ($1)
+#
+
+# skip the header lines, filter, then format the job ids as a list
+qstat -a | awk 'NR > 5 { print }' | grep $1 | cut -f1 -d' ' | tr '\n' ':' | sed 's/:$/\n/g'
