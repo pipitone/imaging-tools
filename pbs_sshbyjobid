@@ -1,0 +1,5 @@
+#!/bin/bash
+jobid=$1
+shift
+echo $jobid
+ssh $(checkjob $jobid | grep -o gpc-f...n...) $@
